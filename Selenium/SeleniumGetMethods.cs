@@ -33,8 +33,6 @@ namespace Selenium
                 return String.Empty;
         }
         //Zasebna metoda za uzimanje vrijednosti za Gender i Language known
-        //Na otvorenoj stranici vrijednost value je ista za za checkbox English i radio button i ona je "male" 
-        //Zbog čega dolazi do ispisa "male" za Languages Known ako se koristi metoda "GetText"
         public static string GetTextButton(IWebDriver driver, string element, string elementtype)
         {
             if (elementtype == "Id")
