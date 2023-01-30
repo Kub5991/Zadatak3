@@ -1,0 +1,94 @@
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Selenium
+{
+    class Program
+    {
+        //Add a reference for our browser
+        IWebDriver driver = new FirefoxDriver();
+
+        static void Main(string[] args)
+        {
+                           
+        }
+        [SetUp]
+        public void Initialize()
+        {
+            //Navigate to google page
+            driver.Navigate().GoToUrl("https://demosite.executeautomation.com/index.html?UserName=&Password=&Login=Login");
+            Console.WriteLine("Opened URL");
+        }
+        [Test]
+        public void ExecuteTest()
+        {
+            //Title
+            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
+
+            //Initial
+            SeleniumSetMethods.EnterText(driver, "Initial", "Execute" ,"Name");
+
+            Console.WriteLine("Odabrana vrijednost u selectu je: " + SeleniumGetMethods.GetText(driver, "TitleId", "Id"));
+
+            Console.WriteLine("Upisana vrijednost u initial je: " + SeleniumGetMethods.GetText(driver, "Initial", "Name"));
+
+            //Click
+            SeleniumSetMethods.Click(driver, "Save", "Name");
+
+
+        }
+        [TearDown]
+        public void CloseUp()
+        {
+            driver.Close();
+            Console.WriteLine("Closing browser");
+        }
+
+    }
+}
+
+Get metoda
+##############################################
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Selenium
+{
+    class SeleniumGetMethods
+    {
+
+        public static string GetText(IWebDriver driver, string element, string elementtype)
+        {
+            if (elementtype == "Id")
+                return driver.FindElement(By.Id(element)).GetAttribute("value");
+            if (elementtype == "Name")
+                return driver.FindElement(By.Name(element)).GetAttribute("value");
+            else
+                return String.Empty;
+        }
+
+        public static string GetTextFromDrop(IWebDriver driver, string element, string elementtype)
+        {
+            if (elementtype == "Id")
+                return new SelectElement(driver.FindElement(By.Id(element))).AllSelectedOptions.SingleOrDefault().Text;
+            if (elementtype == "Name")
+                return new SelectElement(driver.FindElement(By.Name(element))).AllSelectedOptions.SingleOrDefault().Text;
+            else
+                return String.Empty;
+        }
+
+
+    }
+}

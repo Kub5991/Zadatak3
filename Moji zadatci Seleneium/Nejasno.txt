@@ -1,0 +1,8 @@
+Zašto dobivam ovaj error?
+Severity	Code	Description	Project	File	Line	Suppression State
+Error		NuGet Package restore failed for project Selenium: Unable to find version '0.6.0.1' of package 'Selenium.Mozilla.Firefox.WebPropertiesCollection.driver'.
+  C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\: Package 'Selenium.Mozilla.Firefox.WebPropertiesCollection.driver.0.6.0.1' is not found on source 'C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\'.
+  https://api.nuget.org/v3/index.json: Package 'Selenium.Mozilla.Firefox.WebPropertiesCollection.driver.0.6.0.1' is not found on source 'https://api.nuget.org/v3/index.json'.
+. Please see Error List window for detailed warnings and errors.
+
+				
