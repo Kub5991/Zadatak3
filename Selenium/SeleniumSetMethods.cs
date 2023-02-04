@@ -8,7 +8,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Selenium
 {
-    class SeleniumSetMethods
+    public static class SeleniumSetMethods
     {
 
         //EnterText metoda 

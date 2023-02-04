@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Selenium
 {
-    class SeleniumGetMethods
+    public static class SeleniumGetMethods
     {
         //Na otvorenoj stranici vrijednost value je ista za za checkbox English i radio button i ona je "male"
         
@@ -32,16 +32,8 @@ namespace Selenium
             else
                 return String.Empty;
         }
-        //Zasebna metoda za uzimanje vrijednosti za Gender i Language known
-        public static string GetTextButton(IWebDriver driver, string element, string elementtype)
-        {
-            if (elementtype == "Id")
-                return driver.FindElement(By.Id(element)).GetAttribute("value");
-            if (elementtype == "Name")
-                return driver.FindElement(By.Name(element)).GetAttribute("name");
-            else
-                return String.Empty;
-        }
+       
+        
 
     }
 }

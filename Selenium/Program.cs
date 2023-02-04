@@ -11,7 +11,7 @@ namespace Selenium
 {
     class Program
     {
-        //Dodavanje reference za preglednik(Probao i chrome)
+        //Dodavanje reference za preglednik
         IWebDriver driver = new FirefoxDriver();
 
 
@@ -27,7 +27,7 @@ namespace Selenium
             driver.Navigate().GoToUrl("https://demosite.executeautomation.com/index.html?UserName=&Password=&Login=Login");
             Console.WriteLine("Opened URL");
         }
-        //Testiranje upisivanja u kucice i odabiranja gumbova. Ispis unesenih podataka / odabranih vrijednosti
+        //Testiranje upisivanja u textbox i odabiranja gumbova. Ispis unesenih podataka 
         [Test]
         public void ExecuteTest()
         {
@@ -51,9 +51,7 @@ namespace Selenium
             Console.WriteLine("Upisana vrijednost u First Name je: " + SeleniumGetMethods.GetText(driver, "FirstName", "Name"));
             Console.WriteLine("Upisana vrijednost u Middle Name je: " + SeleniumGetMethods.GetText(driver, "MiddleName", "Name"));
 
-            Console.WriteLine("Odabrana vrijednost u Gender je: " + SeleniumGetMethods.GetTextButton(driver, "Male", "Name"));
-            Console.WriteLine("Odabrana vrijednost u Language Known je: " + SeleniumGetMethods.GetTextButton(driver, "english", "Name"));
-
+            
         }
         //Zatvranje preglednika
         [TearDown]
